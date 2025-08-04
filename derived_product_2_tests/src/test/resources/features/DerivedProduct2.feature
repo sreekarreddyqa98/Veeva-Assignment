@@ -7,7 +7,7 @@ Feature: validation for DP2 website
     Then I count the instances of "slides" from "HomePage" page
     And I validate element count to be "5"
     And I get the title of each slide and validate with expected data from file
-    Then I validate the slide durations should be equal to "11" seconds
+    Then I validate the slide durations should be equal to "10" seconds
 
   @DP2_test @Sanity
   Scenario: Validation Footer Links from the Home Page

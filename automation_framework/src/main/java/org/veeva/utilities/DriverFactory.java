@@ -84,8 +84,8 @@ public class DriverFactory {
                 options.addArguments("--start-maximized");
                 options.addArguments("--width=3840");
                 options.addArguments("--height=2160");
-//                options.addArguments("--headless"); // Firefox uses just "--headless"
-//                options.addArguments("--disable-gpu"); // Not mandatory for Firefox but can be included
+                options.addArguments("--headless"); // Firefox uses just "--headless"
+                options.addArguments("--disable-gpu"); // Not mandatory for Firefox but can be included
                 options.addPreference("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                         + "(KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
 
