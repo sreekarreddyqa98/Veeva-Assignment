@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/TestRunner/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestRunner/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/automation_framework/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/automation_framework/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core_product_tests/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core_product_tests/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/derived_product_1_tests/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/derived_product_1_tests/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/derived_product_2_tests/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/derived_product_2_tests/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test-runner/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test-runner/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
