@@ -116,6 +116,7 @@ public class CoreProductSteps {
                 .map(Integer::parseInt)
                 .filter(d -> d > Integer.parseInt(days))
                 .toList();
+        elementCount = dayCounts.size();
     }
 
     @Then("I extract all the product details")

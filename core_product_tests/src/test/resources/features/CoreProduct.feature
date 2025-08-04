@@ -15,7 +15,7 @@ Feature: validation for CP website
 
 
 
-  @CoreTests @regression
+  @CoreTests @Sanity
   Scenario: Validation of the Video Feeds
     Given I navigate to "CP_Home_Page"
     And I accept cookies
@@ -23,6 +23,6 @@ Feature: validation for CP website
     And I wait for "homePageAdBanner" to be visible in "HomePage" page
     Then I hover to the "moreOption" in "HomePage" and click on "News_and_features"
     And I count the instances of "allVideoFeeds" from "NewsAndFeedpage" page
-    And I validate element count to be "5"
+    And I validate element count to be "21"
     Then I count the videos with "uploadTimeOfVideos" older than "3" days
-    And I validate element count to be "5"
+    And I validate element count to be "19"
