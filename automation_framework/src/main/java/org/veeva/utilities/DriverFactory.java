@@ -49,6 +49,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverFactory {
 
@@ -75,19 +77,19 @@ public class DriverFactory {
 
             }
 
-            if (browser.equalsIgnoreCase("edge")) {
-                EdgeOptions options = new EdgeOptions();
-                options.addArguments("--disable-blink-features=AutomationControlled");
-                options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-                options.setExperimentalOption("useAutomationExtension", false);
-                options.addArguments("--start-maximized");
-                options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                        + "(KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
-                options.addArguments("--window-size=3840,2160");
-                options.addArguments("--headless=new");
-                options.addArguments("--disable-gpu");
+            if (browser.equalsIgnoreCase("firefox")) {
+                System.setProperty("webdriver.firefox.driver", "path/to/geckodriver.exe"); // optional if Selenium Manager or WebDriverManager is used
 
-                driver.set(new EdgeDriver(options));
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--start-maximized");
+                options.addArguments("--width=3840");
+                options.addArguments("--height=2160");
+//                options.addArguments("--headless"); // Firefox uses just "--headless"
+//                options.addArguments("--disable-gpu"); // Not mandatory for Firefox but can be included
+                options.addPreference("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                        + "(KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
+
+                driver.set(new FirefoxDriver(options));
                 System.setProperty("browser.name", browser);
             }
 

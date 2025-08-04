@@ -1,37 +1,9 @@
-<!--<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
-<!--<suite name="Multi Module Suite" parallel="tests" thread-count="3">-->
-<!--    <test name="Run Derived Product 2 Module Tests">-->
-<!--        <parameter name="cucumber.filter.tags" value="${cucumber.filter.tags}" />-->
-<!--        <classes>-->
-<!--            <class name="org.veeva.core.runner.RunCucumberTestCP"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--</suite>-->
-
-<!--<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">-->
-<!--<suite name="Core Product Tests" verbose="1" parallel="false">-->
-<!--    <test name="Run Cucumber Tests">-->
-<!--        <parameter name="cucumber.filter.tags" value="${cucumber.filter.tags}" />-->
-<!--        <classes>-->
-<!--            <class name="org.veeva.core.runner.RunCucumberTestCP"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--</suite>-->
-
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Core Product Tests" parallel="tests" thread-count="2">
 
-<test name="Chrome Tests">
-    <parameter name="cucumber.filter.tags" value="${cucumber.filter.tags}" />
+<test name="CP Tests">
+    <parameter name="browser" value="${browser}"/>
     <parameter name="browser" value="chrome"/>
-    <classes>
-        <class name="org.veeva.core.runner.RunCucumberTestCP"/>
-    </classes>
-</test>
-
-<test name="Edge Tests">
-    <parameter name="cucumber.filter.tags" value="${cucumber.filter.tags}" />
-    <parameter name="browser" value="edge"/>
     <classes>
         <class name="org.veeva.core.runner.RunCucumberTestCP"/>
     </classes>

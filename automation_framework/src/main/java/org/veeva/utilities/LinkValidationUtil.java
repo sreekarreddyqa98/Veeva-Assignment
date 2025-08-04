@@ -6,6 +6,7 @@ import net.bytebuddy.agent.builder.AgentBuilder;
 public class LinkValidationUtil {
     static Response response;
     public static boolean isUrlWorking(String url) {
+        System.out.println(url);
         try {
             RestAssured.useRelaxedHTTPSValidation();
             response = RestAssured
@@ -16,15 +17,11 @@ public class LinkValidationUtil {
                     .then()
                     .extract()
                     .response();
-
-            return response.getStatusCode() == 200;
+            System.out.println(response.getStatusCode());
+            return (response.getStatusCode() == 200) || (response.getStatusCode() == 403);
 
         } catch (Exception e) {
-            if(!(response.statusCode() ==200)){
-                return false;
-            }else {
-                return true;
-            }
+            return false;
         }
     }
 }

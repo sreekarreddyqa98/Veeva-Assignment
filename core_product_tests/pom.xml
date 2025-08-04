@@ -16,6 +16,7 @@
 
     <properties>
         <cucumber.filter.tags>${Cucumbertags}</cucumber.filter.tags>
+        <browser>${browserName}</browser>
     </properties>
 
     <dependencies>
@@ -54,6 +55,7 @@
                     <systemPropertyVariables>
                         <allure.results.directory>src/test/resources/reports/allure-results</allure.results.directory>
                         <cucumber.filter.tags>${cucumber.filter.tags}</cucumber.filter.tags>
+                        <browser>${browser}</browser>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
