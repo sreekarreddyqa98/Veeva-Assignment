@@ -42,14 +42,14 @@ jobs:
     - name: Run post-test commands and generate Allure report
       run: |
         cd core_product_tests
-        cd ..
         allure generate src/test/resources/reports/allure-results --clean -o allure-report_cp
+        cd ..
         cd derived_product_1_tests
-        cd ..
         allure generate src/test/resources/reports/allure-results --clean -o allure-report_dp1
-        cd derived_product_2_tests
         cd ..
+        cd derived_product_2_tests
         allure generate src/test/resources/reports/allure-results --clean -o allure-report_dp2
+        cd ..
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
