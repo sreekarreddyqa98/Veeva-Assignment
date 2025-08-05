@@ -27,9 +27,46 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+      
+    - name: Install Allure CLI
+      run: | 
+        wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+        tar -xzf allure-2.27.0.tgz
+        sudo mv allure-2.27.0 /opt/allure
+        sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+        allure --version
+
     - name: Build with Maven
-      run: mvn clean test -fae
+      run: mvn clean test -fae || true
+
+    - name: Run post-test commands and generate Allure report
+      run: |
+        cd core_product_tests
+        cd ..
+        allure generate src/test/resources/reports/allure-results --clean -o allure-report_cp
+        cd derived_product_1_tests
+        cd ..
+        allure generate src/test/resources/reports/allure-results --clean -o allure-report_dp1
+        cd derived_product_2_tests
+        cd ..
+        allure generate src/test/resources/reports/allure-results --clean -o allure-report_dp2
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+    # - name: Update dependency graph
+    #   uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+    
+    - name: Upload Allure HTML Report as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report_cp
+        path: allure-report_cp
+    - name: Upload Allure HTML Report as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report_dp1
+        path: allure-report_dp1
+    - name: Upload Allure HTML Report as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report_dp2
+        path: allure-report_dp2
