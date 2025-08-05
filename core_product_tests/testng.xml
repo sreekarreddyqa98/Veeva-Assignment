@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Core Product Tests" parallel="tests" thread-count="2">
+<suite name="Core Product Tests" parallel="methods" thread-count="2">
 
 <test name="CP Tests">
     <parameter name="browser" value="${browser}"/>
-    <parameter name="browser" value="chrome"/>
+    <parameter name="cucumber.filter.tags" value="${cucumber.filter.tags}" />
     <classes>
         <class name="org.veeva.core.runner.RunCucumberTestCP"/>
     </classes>
