@@ -63,7 +63,7 @@ public class DriverFactory {
     public static void initDriver() {
         try {
             // Read browser configuration from config.properties file
-            String browser = ConfigReader.getProperty("browser");
+            String browser = System.getProperty("browser");
 
             // Initialize Chrome WebDriver with anti-detection and optimization settings
             if (browser.equalsIgnoreCase("chrome")) {
@@ -76,7 +76,7 @@ public class DriverFactory {
                 
                 // Window and display configurations
                 options.addArguments("--start-maximized");  // Start browser in maximized window
-                options.addArguments("--window-size=3840,2160");  // Set high resolution for better element detection
+                options.addArguments("--window-size=1920,1080");  // Set high resolution for better element detection
                 
                 // Custom user agent to mimic real Chrome browser
                 options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -102,13 +102,13 @@ public class DriverFactory {
                 
                 // Window size configurations for Firefox
                 options.addArguments("--start-maximized");
-                options.addArguments("--width=3840");
-                options.addArguments("--height=2160");
+                options.addArguments("--width=1920");
+                options.addArguments("--height=1080");
                 
                 // Headless mode for CI/CD environments
                 options.addArguments("--headless");     // Firefox headless mode
                 options.addArguments("--disable-gpu");  // GPU disable for Firefox stability
-                
+//
                 // Set custom user agent preference for Firefox
                 options.addPreference("general.useragent.override", 
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "

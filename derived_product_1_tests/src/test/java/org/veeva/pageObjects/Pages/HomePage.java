@@ -20,6 +20,9 @@ public class HomePage extends BaseClass {
     @FindBy(xpath = "//div[@role='tablist']/button/div[1]")
     private List<WebElement> slidesTitles;
 
+    @FindBy(xpath = "//div[contains(@aria-label,'Sign Up')]//button[@aria-label='Dismiss this popup']")
+    private WebElement closeSignUp;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }

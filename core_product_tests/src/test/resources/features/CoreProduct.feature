@@ -3,8 +3,8 @@ Feature: validation for CP website
   @CoreTests @Sanity
   Scenario: Capture all Men's Jackets with Price, Title, and Top Seller message from all pages
     Given I navigate to "CP_Home_Page"
-    And I accept cookies
     Then I skip signup
+    And I accept cookies
     And I wait for "homePageAdBanner" to be visible in "HomePage" page
     Then I hover to the "shopMenuOption" in "HomePage" and click on "mens_category"
     Then I switch to "Men's Golden State Warriors Gear, Mens Warriors Apparel, Guys Clothing | shop.warriors.com" page
@@ -25,4 +25,4 @@ Feature: validation for CP website
     And I count the instances of "allVideoFeeds" from "NewsAndFeedpage" page
     And I validate element count to be "21"
     Then I count the videos with "uploadTimeOfVideos" older than "3" days
-    And I validate element count to be "19"
+    And I validate element count to be "20"

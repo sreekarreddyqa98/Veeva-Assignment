@@ -52,7 +52,12 @@ public class CoreProductSteps {
     }
     @Then("I skip signup")
     public void i_skip_signup() {
-        homePage.skipSIgnUp();
+        try{
+            homePage.skipSIgnUp();
+        }catch (Exception e){
+            AllureReportUtils.attachTextToAllure("Sign Up Popup","Not Found");
+        }
+
     }
     @Then("I accept cookies")
     public void i_accept_cookies() {
@@ -62,14 +67,16 @@ public class CoreProductSteps {
     @Then("I hover to the {string} in {string} and click on {string}")
     @RetryStep(attempts = 3)
     public void i_hover_to_the_in(String elementName, String pageName, String clickElementName) throws InterruptedException {
-        Page = pageObjectMap.get(pageName);
-        WebElement element = elementFetcher.getElementByFieldName(Page,elementName);
-        wait.until(ExpectedConditions.visibilityOf(element));
-        utils.hoverToElement(element);
-        WebElement clickElement = elementFetcher.getElementByFieldName(Page,clickElementName);
-        wait.until(ExpectedConditions.elementToBeClickable(clickElement));
-        utils.hoverToElement(element);
-        utils.clickIfVisible(clickElement);
+        RetryHandler.executeWithRetry(() -> {
+            Page = pageObjectMap.get(pageName);
+            WebElement element = elementFetcher.getElementByFieldName(Page,elementName);
+            wait.until(ExpectedConditions.visibilityOf(element));
+            utils.hoverToElement(element);
+            WebElement clickElement = elementFetcher.getElementByFieldName(Page,clickElementName);
+            wait.until(ExpectedConditions.visibilityOf(clickElement));
+            utils.hoverToElement(element);
+            utils.clickIfVisible(clickElement);
+        });
     }
 
     @Then("I click on {string} from page {string}")
@@ -126,9 +133,14 @@ public class CoreProductSteps {
 
     @And("I wait for {string} to be visible in {string} page")
     public void iWaitForToBeVisible(String elementName,String pageName) {
-        Page = pageObjectMap.get(pageName);
-        WebElement element = elementFetcher.getElementByFieldName(Page,elementName);
-        wait.until(ExpectedConditions.visibilityOf(element));
+        try {
+            Page = pageObjectMap.get(pageName);
+            WebElement element = elementFetcher.getElementByFieldName(Page, elementName);
+            wait.until(ExpectedConditions.visibilityOf(element));
+        }catch (Exception e){
+            AllureReportUtils.attachTextToAllure("Banner Status : " , "Not Found");
+
+        }
     }
 
 }

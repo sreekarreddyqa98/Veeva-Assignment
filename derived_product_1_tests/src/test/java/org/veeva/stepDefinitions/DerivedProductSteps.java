@@ -50,14 +50,16 @@ public class DerivedProductSteps {
     @Then("I hover to the {string} in {string} and click on {string}")
     @RetryStep(attempts = 3)
     public void i_hover_to_the_in(String elementName, String pageName, String clickElementName) throws InterruptedException {
-        Page = pageObjectMap.get(pageName);
-        WebElement element = elementFetcher.getElementByFieldName(Page,elementName);
-        wait.until(ExpectedConditions.visibilityOf(element));
-        utils.hoverToElement(element);
-        WebElement clickElement = elementFetcher.getElementByFieldName(Page,clickElementName);
-        wait.until(ExpectedConditions.elementToBeClickable(clickElement));
-        utils.hoverToElement(element);
-        utils.clickIfVisible(clickElement);
+        RetryHandler.executeWithRetry(() -> {
+            Page = pageObjectMap.get(pageName);
+            WebElement element = elementFetcher.getElementByFieldName(Page,elementName);
+            wait.until(ExpectedConditions.visibilityOf(element));
+            utils.hoverToElement(element);
+            WebElement clickElement = elementFetcher.getElementByFieldName(Page,clickElementName);
+            wait.until(ExpectedConditions.elementToBeClickable(clickElement));
+            utils.hoverToElement(element);
+            utils.clickIfVisible(clickElement);
+        });
     }
 
     @Then("I click on {string} from page {string}")

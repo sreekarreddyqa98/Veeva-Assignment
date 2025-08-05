@@ -26,7 +26,32 @@
 
     <build>
         <plugins>
-            <!-- No surefire plugin here since it's a utility module -->
+            <!-- AspectJ Maven Plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+                <version>1.14.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <complianceLevel>11</complianceLevel>
+                    <source>11</source>
+                    <target>11</target>
+                    <sources>
+                        <source>
+                            <basedir>${project.basedir}/src/main/java</basedir>
+                            <includes>
+                                <include>**/*.java</include>
+                            </includes>
+                        </source>
+                    </sources>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
