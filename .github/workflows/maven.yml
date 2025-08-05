@@ -59,14 +59,14 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: allure-report_cp
-        path: allure-report_cp
+        path: core_product_tests/src/test/resources/reports/allure-report_cp
     - name: Upload Allure HTML Report as Artifact
       uses: actions/upload-artifact@v4
       with:
         name: allure-report_dp1
-        path: allure-report_dp1
+        path: derived_product_1_tests/src/test/resources/reports/allure-report_dp1
     - name: Upload Allure HTML Report as Artifact
       uses: actions/upload-artifact@v4
       with:
         name: allure-report_dp2
-        path: allure-report_dp2
+        path: derived_product_2_tests/src/test/resources/reports/allure-report_dp2
