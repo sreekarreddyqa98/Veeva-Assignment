@@ -21,7 +21,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <Cucumbertags>@Sanity</Cucumbertags>
-        <browserName>chrome</browserName>
+        <browserName>firefox</browserName>
         <allure.version>2.24.0</allure.version>
         <cucumber.version>7.11.1</cucumber.version> <!-- Compatible with Allure 2.24.0 -->
     </properties>
