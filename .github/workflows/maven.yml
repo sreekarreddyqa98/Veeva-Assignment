@@ -27,14 +27,15 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn clean test -fae
       
     - name: Install Allure CLI
       run: | 
         sudo apt-add-repository ppa:qameta/allure -y
         sudo apt-get update
         sudo apt-get install allure -y
+
+    - name: Build with Maven
+      run: mvn clean test -fae
 
     - name: Run post-test commands and generate Allure report
       run: |
