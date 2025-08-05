@@ -27,9 +27,4 @@ public class RunCucumberTestCP extends AbstractTestNGCucumberTests {
                 System.setProperty("browser", browser);
                 System.setProperty("cucumber.filter.tags", tags);
         }
-        @Override
-        @DataProvider(parallel = true)
-        public Object[][] scenarios(){
-                return super.scenarios();
-        }
 }
