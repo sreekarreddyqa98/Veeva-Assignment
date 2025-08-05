@@ -31,9 +31,10 @@ jobs:
       run: mvn clean test -fae
       
     - name: Install Allure CLI
-      run: sudo apt-add-repository ppa:qameta/allure -y
-      run: sudo apt-get update
-      run: sudo apt-get install allure -y
+      run: | 
+        sudo apt-add-repository ppa:qameta/allure -y
+        sudo apt-get update
+        sudo apt-get install allure -y
 
     - name: Run post-test commands and generate Allure report
       run: |
